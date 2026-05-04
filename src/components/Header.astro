@@ -1,14 +1,20 @@
 ---
+const base = import.meta.env.BASE_URL;
+const link = (p: string) => `${base.replace(/\/$/, "")}/${p.replace(/^\//, "")}`;
+
 const navItems = [
-  { href: "/about", en: "About", jp: "人柄" },
-  { href: "/story", en: "Story", jp: "歩み" },
-  { href: "/activities", en: "Activities", jp: "活動" },
-  { href: "/contact", en: "Contact", jp: "連絡" },
+  { href: link("/about"), en: "About", jp: "人柄" },
+  { href: link("/story"), en: "Story", jp: "歩み" },
+  { href: link("/activities"), en: "Activities", jp: "活動" },
+  { href: link("/contact"), en: "Contact", jp: "連絡" },
 ];
 
+const home = link("/") || "/";
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
-const isActive = (href: string) =>
-  href === "/" ? path === "/" : path === href || path.startsWith(href + "/");
+const isActive = (href: string) => {
+  const h = href.replace(/\/$/, "") || "/";
+  return h === "/" ? path === "/" : path === h || path.startsWith(h + "/");
+};
 ---
 
 <header
@@ -18,7 +24,7 @@ const isActive = (href: string) =>
     class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
   >
     <a
-      href="/"
+      href={home}
       class="font-serif text-xl text-matcha-700 theme-text-matcha-700 tracking-wide flex items-center gap-3"
     >
       <span class="inline-block w-1.5 h-1.5 rounded-full bg-matcha-500"></span>

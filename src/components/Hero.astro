@@ -1,4 +1,6 @@
 ---
+const base = import.meta.env.BASE_URL;
+const link = (p: string) => `${base.replace(/\/$/, "")}/${p.replace(/^\//, "")}`;
 ---
 
 <section
@@ -71,14 +73,14 @@
 
       <div class="flex flex-col sm:flex-row gap-3 sm:flex-wrap">
         <a
-          href="/story"
+          href={link("/story")}
           class="group inline-flex items-center justify-center sm:justify-start gap-2 px-6 py-4 sm:px-7 sm:py-3 bg-matcha-700 theme-bg-matcha-700 text-washi-50 hover:bg-matcha-800 transition-colors text-sm tracking-wider"
         >
           お茶を始めた理由
           <span class="transition-transform group-hover:translate-x-1">→</span>
         </a>
         <a
-          href="/about"
+          href={link("/about")}
           class="inline-flex items-center justify-center sm:justify-start gap-2 px-6 py-4 sm:px-7 sm:py-3 border border-matcha-700/50 theme-border-matcha-700 text-matcha-700 theme-text-matcha-700 hover:bg-matcha-700 hover:text-washi-50 transition-colors text-sm tracking-wider"
         >
           プロフィール
