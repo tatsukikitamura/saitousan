@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --color-matcha-50: #f4f7ec;
+  --color-matcha-100: #e6eed3;
+  --color-matcha-200: #cdde9f;
+  --color-matcha-300: #a8c46b;
+  --color-matcha-400: #7fa342;
+  --color-matcha-500: #5d8132;
+  --color-matcha-600: #486627;
+  --color-matcha-700: #384e1f;
+  --color-matcha-800: #2b3b18;
+  --color-matcha-900: #1f2b12;
+
+  --color-washi-50: #faf6ec;
+  --color-washi-100: #f3ecd9;
+  --color-washi-200: #e7d7b1;
+  --color-washi-300: #d6c294;
+
+  --color-sumi-600: #5a544c;
+  --color-sumi-700: #3d3a35;
+  --color-sumi-800: #2a2a2a;
+  --color-sumi-900: #1a1a1a;
+
+  --color-sencha-500: #c89b3c;
+  --color-sencha-600: #a87f29;
+
+  --font-sans: "Noto Sans JP", system-ui, -apple-system, sans-serif;
+  --font-serif: "Shippori Mincho", "Noto Serif JP", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-washi-50);
+  color: var(--color-sumi-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(168, 196, 107, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(200, 155, 60, 0.08) 0%, transparent 50%);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.vertical-mixed {
+  writing-mode: vertical-rl;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal-delay-2 {
+  transition-delay: 0.25s;
+}
+.reveal-delay-3 {
+  transition-delay: 0.4s;
+}
+
+.label-dot::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #7fa342;
+  margin: 0.75rem auto 0;
+}
+
+/* themes */
+:root[data-theme="sumi"] body {
+  background-color: #f1ece2;
+}
+:root[data-theme="sumi"] .theme-bg-washi-50 {
+  background-color: #f1ece2 !important;
+}
+:root[data-theme="sumi"] .theme-bg-matcha-50 {
+  background-color: #e9e2d2 !important;
+}
+:root[data-theme="sumi"] .theme-text-matcha-700 {
+  color: #3d3a35 !important;
+}
+:root[data-theme="sumi"] .theme-text-matcha-600 {
+  color: #5a544c !important;
+}
+:root[data-theme="sumi"] .theme-bg-matcha-700 {
+  background-color: #1a1a1a !important;
+}
+:root[data-theme="sumi"] .theme-border-matcha-700 {
+  border-color: #1a1a1a !important;
+}
+:root[data-theme="sumi"] .theme-bg-matcha-800 {
+  background-color: #000 !important;
+}
+
+:root[data-theme="sencha"] body {
+  background-color: #fbf6e9;
+}
+:root[data-theme="sencha"] .theme-bg-washi-50 {
+  background-color: #fbf6e9 !important;
+}
+:root[data-theme="sencha"] .theme-bg-matcha-50 {
+  background-color: #f4ebd4 !important;
+}
+:root[data-theme="sencha"] .theme-text-matcha-700 {
+  color: #7d5a1f !important;
+}
+:root[data-theme="sencha"] .theme-text-matcha-600 {
+  color: #9a7128 !important;
+}
+:root[data-theme="sencha"] .theme-bg-matcha-700 {
+  background-color: #7d5a1f !important;
+}
+:root[data-theme="sencha"] .theme-border-matcha-700 {
+  border-color: #7d5a1f !important;
+}
+:root[data-theme="sencha"] .theme-bg-matcha-800 {
+  background-color: #5e4317 !important;
+}
+:root[data-theme="sencha"] .theme-text-matcha-200 {
+  color: #dcc385 !important;
+}

@@ -1,0 +1,134 @@
+---
+const navItems = [
+  { href: "/about", en: "About", jp: "人柄" },
+  { href: "/story", en: "Story", jp: "歩み" },
+  { href: "/activities", en: "Activities", jp: "活動" },
+  { href: "/contact", en: "Contact", jp: "連絡" },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path === href || path.startsWith(href + "/");
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-washi-50/85 theme-bg-washi-50 border-b border-washi-200/60"
+>
+  <div
+    class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
+  >
+    <a
+      href="/"
+      class="font-serif text-xl text-matcha-700 theme-text-matcha-700 tracking-wide flex items-center gap-3"
+    >
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-matcha-500"></span>
+      齊藤
+    </a>
+
+    <nav class="hidden md:block">
+      <ul class="flex gap-7 text-sm text-sumi-800 items-center">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+                class:list={[
+                  "group flex flex-col items-center gap-0.5 hover:text-matcha-700",
+                  isActive(item.href) && "text-matcha-700",
+                ]}
+              >
+                <span class="font-serif tracking-wider text-[13px]">
+                  {item.en}
+                </span>
+                <span class="text-[9px] text-matcha-600/70 tracking-widest theme-text-matcha-600">
+                  {item.jp}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      class="md:hidden relative flex flex-col justify-center items-center w-10 h-10 -mr-2"
+      aria-label="メニューを開く"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+      <span data-bar="1" class="block absolute w-6 h-px bg-sumi-800 transition-transform duration-300 -translate-y-2"></span>
+      <span data-bar="2" class="block absolute w-6 h-px bg-sumi-800 transition-opacity duration-200"></span>
+      <span data-bar="3" class="block absolute w-6 h-px bg-sumi-800 transition-transform duration-300 translate-y-2"></span>
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="md:hidden overflow-hidden max-h-0 transition-[max-height] duration-300 ease-out border-t border-washi-200/0"
+  >
+    <ul class="px-6 py-4 space-y-1 bg-washi-50/95 theme-bg-washi-50">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
+              class:list={[
+                "flex items-baseline justify-between py-3 border-b border-washi-200/60 last:border-0",
+                isActive(item.href)
+                  ? "text-matcha-700 theme-text-matcha-700"
+                  : "text-sumi-800 hover:text-matcha-700",
+              ]}
+            >
+              <span class="font-serif tracking-wider text-base">
+                {item.en}
+              </span>
+              <span class="text-[10px] text-matcha-600/70 theme-text-matcha-600 tracking-widest">
+                {item.jp}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  if (btn && menu) {
+    const bar1 = btn.querySelector('[data-bar="1"]') as HTMLElement | null;
+    const bar2 = btn.querySelector('[data-bar="2"]') as HTMLElement | null;
+    const bar3 = btn.querySelector('[data-bar="3"]') as HTMLElement | null;
+    const setBars = (open: boolean) => {
+      if (!bar1 || !bar2 || !bar3) return;
+      bar1.style.transform = open ? "translateY(0) rotate(45deg)" : "translateY(-8px)";
+      bar2.style.opacity = open ? "0" : "1";
+      bar3.style.transform = open ? "translateY(0) rotate(-45deg)" : "translateY(8px)";
+    };
+    const close = () => {
+      btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("aria-label", "メニューを開く");
+      menu.style.maxHeight = "0px";
+      setBars(false);
+    };
+    const openMenu = () => {
+      btn.setAttribute("aria-expanded", "true");
+      btn.setAttribute("aria-label", "メニューを閉じる");
+      menu.style.maxHeight = menu.scrollHeight + "px";
+      setBars(true);
+    };
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      if (expanded) close();
+      else openMenu();
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768) close();
+    });
+  }
+</script>

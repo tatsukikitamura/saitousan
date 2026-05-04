@@ -1,0 +1,113 @@
+---
+const chapters = [
+  {
+    year: "出会い",
+    en: "Encounter",
+    title: "一杯のお茶から",
+    body: "ある冬の日、知人の家でいただいた一杯の煎茶。立ちのぼる湯気と、ふくよかな香りに、ふと足をとめてしまった瞬間がありました。それまで、お茶は何気ない日常の一部でしかありませんでした。けれど、その日のお茶は、たしかに私の中で何かを動かしたのです。",
+    image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=900&q=80",
+  },
+  {
+    year: "学び",
+    en: "Learning",
+    title: "深まる興味",
+    body: "もっと知りたい。素直にそう思いました。本を開き、産地を訪ね、先生のもとを訪ねるうちに、お茶の奥には、土地の風景や、つくり手の手仕事や、長く受け継がれてきた所作があることを知っていきました。それは、お茶を学ぶというよりも、人や暮らしを学ぶ時間でした。",
+    image: "https://images.unsplash.com/photo-1582793988951-9aed5509eb97?w=900&q=80",
+  },
+  {
+    year: "実践",
+    en: "Practice",
+    title: "暮らしの中へ",
+    body: "学んだことを、少しずつ日々の中に取り入れていく。朝の一服、夜の一杯。お茶を淹れる時間が、私の生活にリズムをくれるようになりました。湯を沸かすあいだに、心がふっと整っていく。そんな小さな実感が、毎日を支えてくれています。",
+    image: "https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=900&q=80",
+  },
+  {
+    year: "現在",
+    en: "Now",
+    title: "そして今",
+    body: "今は、お茶を通じて出会う人たちとの時間を、何より大切にしています。お茶は一人で味わうのもいいけれど、誰かと囲む時間には、また違ったあたたかさがあります。お茶のある時間の心地よさを、もっと多くの方と分かち合えたら、と願っています。",
+    image: "https://images.unsplash.com/photo-1547825407-2d060104b7f8?w=900&q=80",
+  },
+];
+---
+
+<section
+  id="story"
+  class="pt-32 pb-24 md:pt-40 md:pb-32 bg-matcha-50 theme-bg-matcha-50 relative overflow-hidden"
+>
+  <div class="absolute inset-0 opacity-[0.07] pointer-events-none">
+    <div
+      class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-matcha-700 blur-[120px]"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-sencha-500 blur-[120px]"
+    >
+    </div>
+  </div>
+
+  <div class="relative max-w-5xl mx-auto px-6">
+    <div class="text-center mb-20 reveal">
+      <p
+        class="label-dot font-serif text-matcha-600 theme-text-matcha-600 tracking-[0.4em] mb-3 text-xs"
+      >
+        STORY
+      </p>
+      <h2 class="font-serif text-3xl md:text-5xl text-sumi-900 mt-6 mb-8">
+        なぜお茶を始めたのか
+      </h2>
+      <p class="text-sumi-700 max-w-xl mx-auto leading-loose">
+        小さな出会いから、暮らしの真ん中へ。<br />お茶と歩んできた、これまでの道のり。
+      </p>
+    </div>
+
+    <div class="space-y-20 md:space-y-24">
+      {
+        chapters.map((c, i) => {
+          const reverse = i % 2 === 1;
+          return (
+            <div class="grid md:grid-cols-12 gap-6 md:gap-12 items-center reveal">
+              <div class={`md:col-span-5 ${reverse ? "md:order-2" : ""}`}>
+                <div class="aspect-[4/5] overflow-hidden bg-washi-100 shadow-sm">
+                  <img
+                    src={c.image}
+                    alt={c.title}
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-[2000ms] hover:scale-105"
+                  />
+                </div>
+              </div>
+              <div class={`md:col-span-7 ${reverse ? "md:order-1" : ""}`}>
+                <div class="flex items-baseline gap-4 mb-4">
+                  <span class="font-serif text-matcha-600 theme-text-matcha-600 text-sm tracking-[0.3em]">
+                    CH.0{i + 1}
+                  </span>
+                  <span class="h-px flex-1 bg-matcha-300/50" />
+                  <span class="font-serif text-matcha-600 theme-text-matcha-600 text-xs tracking-[0.3em]">
+                    {c.en}
+                  </span>
+                </div>
+                <p class="font-serif text-matcha-700 theme-text-matcha-700 text-base mb-3 tracking-widest">
+                  — {c.year} —
+                </p>
+                <h3 class="font-serif text-2xl md:text-3xl text-sumi-900 mb-6 leading-snug">
+                  {c.title}
+                </h3>
+                <p class="text-sumi-800 leading-loose text-[15px]">{c.body}</p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <div class="mt-24 text-center reveal">
+      <p
+        class="font-serif text-matcha-700 theme-text-matcha-700 italic text-lg mb-2"
+      >
+        ……そしてこの物語は、まだ続いています。
+      </p>
+      <div class="w-12 h-px bg-matcha-400 mx-auto mt-6"></div>
+    </div>
+  </div>
+</section>

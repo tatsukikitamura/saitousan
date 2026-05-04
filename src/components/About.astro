@@ -1,0 +1,121 @@
+---
+const profile = [
+  { label: "名前", value: "齊藤" },
+  { label: "出身", value: "（出身地）" },
+  { label: "活動", value: "日本茶・茶道" },
+  { label: "好きな時間", value: "朝の一服、雨の日の煎茶" },
+  { label: "好きな茶", value: "煎茶、玉露、季節のお抹茶" },
+];
+
+const moments = [
+  {
+    n: "01",
+    title: "朝のはじまり",
+    body: "目覚めて、湯を沸かす。湯気の立つお茶を一杯いただくところから、私の一日は始まります。",
+    extra: "",
+  },
+  {
+    n: "02",
+    title: "人と過ごす",
+    body: "気の置けない人たちと、お茶を囲む時間が好きです。言葉が少なくても、湯気の向こうに通じ合うものがあります。",
+    extra: "md:mt-12",
+  },
+  {
+    n: "03",
+    title: "季節を味わう",
+    body: "春は新茶、夏は冷茶、秋は深蒸し、冬は熱々のほうじ茶。季節とともにお茶も変わっていく、その移ろいに心が動きます。",
+    extra: "",
+  },
+];
+---
+
+<section
+  id="about"
+  class="pt-32 pb-24 md:pt-40 md:pb-32 bg-washi-50 theme-bg-washi-50 relative"
+>
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-20 reveal">
+      <p
+        class="label-dot font-serif text-matcha-600 theme-text-matcha-600 tracking-[0.4em] mb-3 text-xs"
+      >
+        ABOUT
+      </p>
+      <h2 class="font-serif text-3xl md:text-5xl text-sumi-900 mt-6">
+        どんな人なのか
+      </h2>
+    </div>
+
+    <div
+      class="grid md:grid-cols-[1.2fr_1fr] gap-12 md:gap-20 mb-24 items-start"
+    >
+      <div class="space-y-6 text-sumi-800 leading-loose reveal">
+        <p class="font-serif text-xl text-sumi-900 leading-relaxed">
+          こんにちは、齊藤と申します。
+        </p>
+        <p>
+          普段は（職業・肩書き）として活動しながら、お茶のある暮らしを実践しています。
+        </p>
+        <p>
+          特別な作法や難しい知識を、誰かに披露したいわけではありません。ただ、お湯を沸かして、急須にお茶葉を入れて、湯呑みに注ぐ。その一連の所作の中に、私はささやかな喜びを見つけてきました。
+        </p>
+        <p>
+          このページは、私自身を知っていただくための、名刺のようなものです。お茶のように、ゆっくりと読んでいただけたらうれしいです。
+        </p>
+        <div class="pt-4">
+          <p
+            class="font-serif text-matcha-700 theme-text-matcha-700 italic"
+          >
+            — ゆっくりと、お茶のような時間を。
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="aspect-[3/4] overflow-hidden mb-6 bg-washi-100">
+          <img
+            src="https://images.unsplash.com/photo-1545048702-79362596cdc9?w=900&q=80"
+            alt="齊藤のポートレート（仮）"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <dl class="space-y-3 border-t border-washi-200 pt-6">
+          {
+            profile.map((p) => (
+              <div class="flex border-b border-washi-200/60 pb-2.5">
+                <dt class="font-serif text-matcha-700 theme-text-matcha-700 w-24 shrink-0 text-xs tracking-widest">
+                  {p.label}
+                </dt>
+                <dd class="text-sumi-800 text-sm">{p.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p
+        class="font-serif text-center text-matcha-700 theme-text-matcha-700 tracking-[0.3em] text-xs mb-10"
+      >
+        ─── 日々のひとこま ───
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          moments.map((m) => (
+            <div class={`relative ${m.extra}`}>
+              <div class="absolute -top-2 -left-2 font-serif text-matcha-200 text-6xl select-none pointer-events-none">
+                {m.n}
+              </div>
+              <div class="relative bg-washi-100/60 backdrop-blur-sm p-8 border-t-2 border-matcha-300/40">
+                <h3 class="font-serif text-lg text-sumi-900 mb-3">
+                  {m.title}
+                </h3>
+                <p class="text-sm text-sumi-700 leading-loose">{m.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
