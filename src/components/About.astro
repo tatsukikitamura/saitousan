@@ -1,8 +1,10 @@
 ---
 const profile = [
-  { label: "名前", value: "齊藤" },
+  { label: "名前", value: "名前(仮)" },
   { label: "出身", value: "（出身地）" },
-  { label: "活動", value: "日本茶・茶道" },
+  { label: "本業", value: "バイク屋（ハーレー専門）" },
+  { label: "愛車", value: "Harley-Davidson（車種）" },
+  { label: "もう一つの顔", value: "茶人・茶道のたしなみ" },
   { label: "好きな時間", value: "朝の一服、雨の日の煎茶" },
   { label: "好きな茶", value: "煎茶、玉露、季節のお抹茶" },
 ];
@@ -50,13 +52,16 @@ const moments = [
     >
       <div class="space-y-6 text-sumi-800 leading-loose reveal">
         <p class="font-serif text-xl text-sumi-900 leading-relaxed">
-          こんにちは、齊藤と申します。
+          こんにちは、名前(仮)と申します。
         </p>
         <p>
-          普段は（職業・肩書き）として活動しながら、お茶のある暮らしを実践しています。
+          普段はハーレーを扱うバイク屋として、油まみれで鉄を相手にしています。革ジャンを羽織り、エンジン音を響かせながら風を切る——そんな時間の中に身を置いてきました。
         </p>
         <p>
-          特別な作法や難しい知識を、誰かに披露したいわけではありません。ただ、お湯を沸かして、急須にお茶葉を入れて、湯呑みに注ぐ。その一連の所作の中に、私はささやかな喜びを見つけてきました。
+          そんな私が、ある日ふと出会ったのがお茶でした。轟音のあとの、湯の沸く小さな音。鉄を握る手で、今度は急須を握る。意外に思われるかもしれませんが、自分の中ではどちらも同じように、心を澄ませてくれる時間なのです。
+        </p>
+        <p>
+          特別な作法や難しい知識を、誰かに披露したいわけではありません。ただ、お湯を沸かして、急須にお茶葉を入れて、湯呑みに注ぐ。その一連の所作の中に、バイクを整備するときと似た静けさを、私は見つけてきました。
         </p>
         <p>
           このページは、私自身を知っていただくための、名刺のようなものです。お茶のように、ゆっくりと読んでいただけたらうれしいです。
@@ -71,13 +76,11 @@ const moments = [
       </div>
 
       <div class="reveal reveal-delay-1">
-        <div class="aspect-[3/4] overflow-hidden mb-6 bg-washi-100">
-          <img
-            src="https://images.unsplash.com/photo-1545048702-79362596cdc9?w=900&q=80"
-            alt="齊藤のポートレート（仮）"
-            class="w-full h-full object-cover"
-          />
-        </div>
+        <p
+          class="font-serif text-matcha-700 theme-text-matcha-700 tracking-[0.3em] text-[11px] mb-6"
+        >
+          ─── プロフィール ───
+        </p>
         <dl class="space-y-3 border-t border-washi-200 pt-6">
           {
             profile.map((p) => (

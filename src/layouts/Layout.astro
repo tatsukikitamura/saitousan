@@ -11,8 +11,8 @@ interface Props {
 }
 
 const {
-  title = "齊藤さんの個人ページ | お茶と暮らす日々",
-  description = "お茶を愛する齊藤の個人ページ。お茶を始めた理由、人となり、活動についてご紹介します。",
+  title = "名前(仮)さんの個人ページ | お茶と暮らす日々",
+  description = "お茶を愛する名前(仮)の個人ページ。お茶を始めた理由、人となり、活動についてご紹介します。",
   ogImage = "/og-image.png",
 } = Astro.props;
 
@@ -70,7 +70,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
-      name: "齊藤",
+      name: "名前(仮)",
       url: canonicalURL,
       description,
       knowsAbout: ["日本茶", "茶道", "お茶"],

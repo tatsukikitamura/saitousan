@@ -23,8 +23,8 @@ const link = (p: string) => `${base.replace(/\/$/, "")}/${p.replace(/^\//, "")}`
   >
     <div class="absolute inset-6 overflow-hidden">
       <img
-        src="https://images.unsplash.com/photo-1556881286-fc6915169721?w=1200&q=80"
-        alt="お茶の風景"
+        src={link("/saito.jpg")}
+        alt="茶室で点前をする名前(仮)"
         class="w-full h-full object-cover opacity-90"
       />
       <div
@@ -48,7 +48,7 @@ const link = (p: string) => `${base.replace(/\/$/, "")}/${p.replace(/^\//, "")}`
         <h1
           class="font-serif text-7xl md:text-7xl text-sumi-900 leading-[1.1] tracking-[0.1em] md:tracking-[0.15em] mb-4"
         >
-          齊藤
+          名前(仮)
         </h1>
         <p
           class="font-serif text-xs md:text-sm text-matcha-700 theme-text-matcha-700 tracking-[0.3em]"
@@ -57,30 +57,31 @@ const link = (p: string) => `${base.replace(/\/$/, "")}/${p.replace(/^\//, "")}`
         </p>
         <div class="w-8 h-px bg-matcha-400 my-3"></div>
         <p class="text-[11px] md:text-xs text-sumi-600 font-serif tracking-widest">
-          茶を愛する一個人
+          鉄馬を駆り、茶を愛す
         </p>
       </div>
 
       <p
         class="font-serif text-xl md:text-xl text-sumi-800 leading-loose mb-6 md:mb-10"
       >
-        一杯のお茶から、<br />静かな時間がはじまる。
+        昼はエンジンの音、<br />夜は湯のしずかな音。
       </p>
       <p class="text-sm text-sumi-700 leading-loose mb-10 md:mb-12 max-w-md">
-        季節を感じ、人と出会い、<br />日々を丁寧に過ごすこと。<br
-        />そのすべてが、お茶の中にあります。
+        ハーレーを転がすバイク屋として、<br
+        />一日の終わりには、急須を握る。<br
+        />相反するふたつの時間を、私はどちらも愛しています。
       </p>
 
       <div class="flex flex-col sm:flex-row gap-3 sm:flex-wrap">
         <a
-          href={link("/story")}
+          href="#story"
           class="group inline-flex items-center justify-center sm:justify-start gap-2 px-6 py-4 sm:px-7 sm:py-3 bg-matcha-700 theme-bg-matcha-700 text-washi-50 hover:bg-matcha-800 transition-colors text-sm tracking-wider"
         >
           お茶を始めた理由
           <span class="transition-transform group-hover:translate-x-1">→</span>
         </a>
         <a
-          href={link("/about")}
+          href="#about"
           class="inline-flex items-center justify-center sm:justify-start gap-2 px-6 py-4 sm:px-7 sm:py-3 border border-matcha-700/50 theme-border-matcha-700 text-matcha-700 theme-text-matcha-700 hover:bg-matcha-700 hover:text-washi-50 transition-colors text-sm tracking-wider"
         >
           プロフィール
@@ -89,9 +90,4 @@ const link = (p: string) => `${base.replace(/\/$/, "")}/${p.replace(/^\//, "")}`
     </div>
   </div>
 
-  <div
-    class="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 text-matcha-700/60 theme-text-matcha-700 text-[10px] md:text-xs tracking-[0.3em] font-serif animate-pulse"
-  >
-    SCROLL
-  </div>
 </section>
