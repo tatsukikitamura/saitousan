@@ -48,9 +48,9 @@ const moments = [
     </div>
 
     <div
-      class="grid md:grid-cols-[1.2fr_1fr] gap-12 md:gap-20 mb-24 items-start"
+      class="grid md:grid-cols-[1.2fr_1fr] gap-12 md:gap-20 mb-24 items-start reveal"
     >
-      <div class="space-y-6 text-sumi-800 leading-loose reveal">
+      <div class="space-y-6 text-sumi-800 leading-loose">
         <p class="font-serif text-xl text-sumi-900 leading-relaxed">
           こんにちは、名前(仮)と申します。
         </p>
@@ -75,7 +75,7 @@ const moments = [
         </div>
       </div>
 
-      <div class="reveal reveal-delay-1">
+      <div>
         <p
           class="font-serif text-matcha-700 theme-text-matcha-700 tracking-[0.3em] text-[11px] mb-6"
         >
@@ -96,29 +96,27 @@ const moments = [
       </div>
     </div>
 
-    <div class="reveal">
-      <p
-        class="font-serif text-center text-matcha-700 theme-text-matcha-700 tracking-[0.3em] text-xs mb-10"
-      >
-        ─── 日々のひとこま ───
-      </p>
-      <div class="grid md:grid-cols-3 gap-8">
-        {
-          moments.map((m) => (
-            <div class={`relative ${m.extra}`}>
-              <div class="absolute -top-2 -left-2 font-serif text-matcha-200 text-6xl select-none pointer-events-none">
-                {m.n}
-              </div>
-              <div class="relative bg-washi-100/60 backdrop-blur-sm p-8 border-t-2 border-matcha-300/40">
-                <h3 class="font-serif text-lg text-sumi-900 mb-3">
-                  {m.title}
-                </h3>
-                <p class="text-sm text-sumi-700 leading-loose">{m.body}</p>
-              </div>
+    <p
+      class="reveal font-serif text-center text-matcha-700 theme-text-matcha-700 tracking-[0.3em] text-xs mb-10"
+    >
+      ─── 日々のひとこま ───
+    </p>
+    <div class="grid md:grid-cols-3 gap-8 reveal">
+      {
+        moments.map((m) => (
+          <div class={`relative ${m.extra}`}>
+            <div class="absolute -top-2 -left-2 font-serif text-matcha-200 text-6xl select-none pointer-events-none">
+              {m.n}
             </div>
-          ))
-        }
-      </div>
+            <div class="relative bg-washi-100/60 backdrop-blur-sm p-8 border-t-2 border-matcha-300/40">
+              <h3 class="font-serif text-lg text-sumi-900 mb-3">
+                {m.title}
+              </h3>
+              <p class="text-sm text-sumi-700 leading-loose">{m.body}</p>
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

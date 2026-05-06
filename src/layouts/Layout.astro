@@ -83,18 +83,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
     <ThemeToggle />
 
     <script>
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("is-visible");
-              io.unobserve(e.target);
+      if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                io.unobserve(e.target);
+              }
             }
-          });
-        },
-        { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
-      );
-      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+          },
+          { threshold: 0, rootMargin: "0px 0px -35% 0px" },
+        );
+        const scan = () => {
+          document
+            .querySelectorAll<HTMLElement>(".reveal:not(.is-visible)")
+            .forEach((el) => io.observe(el));
+        };
+        scan();
+        const mo = new MutationObserver(scan);
+        mo.observe(document.body, { childList: true, subtree: true });
+      }
     </script>
   </body>
 </html>

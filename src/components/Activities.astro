@@ -19,8 +19,6 @@ const activities = [
     image: "https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?w=900&q=80",
   },
 ];
-
-const delays = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3"];
 ---
 
 <section
@@ -43,10 +41,10 @@ const delays = ["reveal-delay-1", "reveal-delay-2", "reveal-delay-3"];
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-10">
+    <div class="grid md:grid-cols-3 gap-10 reveal">
       {
         activities.map((a, i) => (
-          <article class={`group reveal ${delays[Math.min(i, 2)]}`}>
+          <article class="group">
             <div class="aspect-[4/5] bg-matcha-100 overflow-hidden mb-6">
               <img
                 src={a.image}
